@@ -39,7 +39,7 @@ print('As it stands, you are currently missing:')
 for i in total_missing:
     print(obj_items['items'][i]['name'])
 
-# try to get the lowest price available from bazaar AND item market
+#try to get the lowest price available from bazaar AND item market
 print('\n')
 for i in total_missing:
 
@@ -53,7 +53,7 @@ for i in total_missing:
      
      #we need to have difference results for whether the bazaar price or item market price is lower, 
      #and different results for whether that price is higher or lower than the market value
-     #string order should be item name, bazaar price, and difference
+     
      if LP_bazaar > LP_itemmarket :
         if LP_itemmarket > market_value:
             difference = LP_itemmarket - market_value
@@ -67,9 +67,6 @@ for i in total_missing:
             print('The cheapest %s is $%s in a bazaar, which is $%s higher than market value.' %(obj_items['items'][i]['name'],LP_bazaar,difference))
         else:
             difference = market_value - LP_bazaar
-            print('The cheapest %s is $%s in a bazaar, which is $%s lower than market value.' %(obj_items['items'][i]['name'],LP_bazaar,difference))
-        
-        
-#tell the difference from market value too!        
+            print('The cheapest %s is $%s in a bazaar, which is $%s lower than market value.' %(obj_items['items'][i]['name'],LP_bazaar,difference))     
 print('\n')       
 input("press ENTER to continue")
