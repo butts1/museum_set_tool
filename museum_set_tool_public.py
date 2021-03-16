@@ -67,6 +67,7 @@ for i in total_missing:
             print('The cheapest %s is $%s in a bazaar, which is $%s higher than market value.' %(obj_items['items'][i]['name'],LP_bazaar,difference))
         else:
             difference = market_value - LP_bazaar
-            print('The cheapest %s is $%s in a bazaar, which is $%s lower than market value.' %(obj_items['items'][i]['name'],LP_bazaar,difference))     
+            print('The cheapest %s is $%s in a bazaar, which is $%s lower than market value.' %(obj_items['items'][i]['name'],LP_bazaar,difference))   
+            
 print('\n')       
 input("press ENTER to continue")
