@@ -43,14 +43,14 @@ else:
 for i in total_missing:
     print(obj_items['items'][i]['name'])
 
-#try to get the lowest price available from bazaar AND item market
+
 print('\n')
 
-
+# open the item market page for each piece that is missing from your set!
 for i in total_missing:
      item_market_link = "https://www.torn.com/imarket.php#/p=shop&type=" + i
      webbrowser.open(item_market_link)
-     
+ #try to get the lowest price available from bazaar AND item market    
 for i in total_missing:
 
      APIurl_bazaar = 'https://api.torn.com/market/%s?selections=bazaar&key=%s'%(i,apiKey)
