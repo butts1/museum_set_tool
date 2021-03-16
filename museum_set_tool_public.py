@@ -3,6 +3,7 @@ apiKey = "YOUR KEY HERE"
 import requests
 import json
 
+
 APIurl_items = 'https://api.torn.com/torn/?selections=items&key=%s'%(apiKey)
 APIurl_inventory = 'https://api.torn.com/user/?selections=inventory&key=%s'%(apiKey)
 
@@ -35,7 +36,11 @@ total_missing = flower_id + plushie_id
 
 #tell us what were missing!
 print('\n')
-print('As it stands, you are currently missing:')
+print(total_missing)
+#    print('You have full sets of both!')
+# else:
+    # print('As it stands, you are currently missing:')
+    
 for i in total_missing:
     print(obj_items['items'][i]['name'])
 
