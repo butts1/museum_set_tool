@@ -1,4 +1,5 @@
-apiKey = "YOUR KEY HERE"
+apiKey = "Your Key Here"
+
 import requests
 import json
 import webbrowser
@@ -44,10 +45,11 @@ for i in total_missing:
 
 #try to get the lowest price available from bazaar AND item market
 print('\n')
-webbrowser.open("https://www.torn.com")
+
+
 for i in total_missing:
      item_market_link = "https://www.torn.com/imarket.php#/p=shop&type=" + i
-     webbrowser.open_new_tab(item_market_link)
+     webbrowser.open(item_market_link)
      
 for i in total_missing:
 
