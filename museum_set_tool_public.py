@@ -11,11 +11,26 @@ obj_items = json.loads(requests.get(APIurl_items).text)
 obj_inventory = json.loads(requests.get(APIurl_inventory).text)
 plushie_id = ['186','187','215','258','261','266','268','269','273','274','281','384','618']
 flower_id = ['260','263','264','267','271','272','276','277','282','385','617']
-price_of_plushie_set = 0
-price_of_flower_set = 0
-types_of_sets = [plushie_id,flower_id]
+coin_id = ['450','451','452']
+quran_id = ['455','456','457']
+types_of_sets = [plushie_id,flower_id,coin_id,quran_id]
 
 #missing function will filter museum sets down to what items you are missing.
+
+def set_value(x):
+    SET = 0
+    for i in x:
+        SET = obj_items['items'][i]['market_value'] + SET
+    if x == plushie_id:
+        set_ratio = SET / 10
+    elif x == flower_id:
+        set_ratio = SET / 10
+    elif x == coin_id:
+        set_ratio = SET / 100
+    elif x == quran_id:
+        set_ratio = SET / 1000
+    print('Right now, this type of set is worth $%s, which is $%s per point.'%(SET,set_ratio))
+    
 def missing(x):
     for i in obj_inventory['inventory']:
             if str(i['ID']) in x:
@@ -48,19 +63,17 @@ def function(x):
     if x == 'done':
         return
     try:    
-        if x == 'plushy':
-           missing(types_of_sets[0])
-           lowest_price(types_of_sets[0])
-           open_market(types_of_sets[0])
-        elif x == 'flower':
-           missing(types_of_sets[1])
-           lowest_price(types_of_sets[1])
-           open_market(types_of_sets[1])            
+        x = int(x) - 1
+        set_value(types_of_sets[int(x)])
+        missing(types_of_sets[int(x)])
+        lowest_price(types_of_sets[int(x)])
+        open_market(types_of_sets[int(x)])
+            
     except:
         print("That doesn't look right, try again.") 
-    function(input('Which museum set are you looking for? Please enter plushy or flower. Enter "done" to finish.\n'))
+    function(input('Which museum set are you looking for? Choose from the previous menu, or enter "done" to finish.\n'))
 
-function(input('Which museum set are you looking for? Please enter plushy or flower.\n'))
+function(input('Which museum set are you looking for?\n1.)plushy \n2.)flower\n3.)coin\n4.)quran script\n'))
 
 
 
